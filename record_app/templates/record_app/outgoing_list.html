@@ -1,0 +1,21 @@
+<h1>List of all outgoings with Search</h1>
+<form action="{% url 'record_app:list_outgoing' %}" method="get">
+    <input type="text" name="q" value="{{ request.GET.q }}">
+    <button type="submit">Search</button>
+</form>
+<table>
+    {% for outgoing in outgoings %}
+    <tr>
+        <td>{{outgoing.document_number}}</td>
+        <td>{{outgoing.subject}}</td>
+        <td>{{outgoing.description}}</td>
+        <td><a href="/record_app/detail_outgoing/{{outgoing.id}}">Details</a></td>
+        <td><a href="/record_app/update_outgoing/{{outgoing.id}}">Update</a></td>
+        <td><a href="/record_app/delete_outgoing/{{outgoing.id}}">Delete</a></td>
+        
+    </tr>
+    {% empty %}
+    <tr>No record found.</tr>
+    {% endfor %}
+</table>
+

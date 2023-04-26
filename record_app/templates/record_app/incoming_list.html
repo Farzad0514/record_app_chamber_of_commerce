@@ -1,0 +1,21 @@
+<h1>List of all Incomings with Search</h1>
+<form action="{% url 'record_app:list_incoming' %}" method="get">
+    <input type="text" name="q" value="{{ request.GET.q }}">
+    <button type="submit">Search</button>
+</form>
+<table>
+    {% for incoming in incomings %}
+    <tr>
+        <td>{{incoming.document_number}}</td>
+        <td>{{incoming.subject}}</td>
+        <td>{{incoming.description}}</td>
+        <td><a href="/record_app/detail_incoming/{{incoming.id}}">Details</a></td>
+        <td><a href="/record_app/update_incoming/{{incoming.id}}">Update</a></td>
+        <td><a href="/record_app/delete_incoming/{{incoming.id}}">Delete</a></td>
+        
+    </tr>
+    {% empty %}
+    <tr>No record found.</tr>
+    {% endfor %}
+</table>
+

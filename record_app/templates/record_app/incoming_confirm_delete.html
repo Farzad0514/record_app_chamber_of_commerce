@@ -1,0 +1,8 @@
+<h1>Are you you want to delete this incoming record?</h1>
+<h2>{{incoming}}</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Confirm Delete">
+
+</form>

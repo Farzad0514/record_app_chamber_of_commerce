@@ -1,0 +1,52 @@
+<h1>This is Home Page</h1>
+<ul>
+    <li>
+        <a href="{% url "record_app:home" %}">home</a>
+    </li>
+    <li>
+        <a href="{% url "record_app:thank_you" %}">thank you</a>
+    </li>
+    <li>
+        <a href="{% url "record_app:create_employee" %}">Create Employee</a>
+    </li>
+    <li>
+        <a href="{% url "record_app:list_employees" %}">List Employees</a>
+    </li>
+    <li>
+        <a href="{% url "record_app:create_files" %}">Create Files</a>
+    </li>
+    <li>
+        <a href="{% url "record_app:list_files" %}">List Files</a>
+    </li>
+    <li>
+        <a href="{% url "record_app:create_incoming" %}">Create Incoming</a>
+    </li>
+
+    <li>
+        <a href="{% url "record_app:list_incoming" %}">list Incoming</a>
+    </li>
+
+    <li>
+        <a href="{% url "record_app:create_outgoing" %}">Create Outgoing</a>
+    </li>
+
+    <li>
+        <a href="{% url "record_app:list_outgoing" %}">List Outgoing</a>
+    </li>
+
+
+
+</ul>
+
+
+{% if user.is_authenticated %}
+	<p> you are logged in </p>
+	<p> Welcome: {{user.get_username}} </p>
+	<a href="{% url 'logout' %}">click here to logout</a>
+
+{% else %}
+	<p>You are not logged in</p>
+	<a href="{% url 'login' %}">click here to login</a>
+{% endif %}
+
+
